@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 import Button from './components/Button';
-import getWeather from './http';
+import getWeather from './utils/http';
+import Main from './components/Main/Main';
 
 function App() {
   const [query, setQuery] = useState('');
@@ -12,8 +13,6 @@ function App() {
     const data = await getWeather(query);
     setQuery('');
     setWeather(data);
-    console.log('stop');
-    console.log('weather cia', weather);
   };
 
   return (
@@ -29,11 +28,9 @@ function App() {
         <Button>Search</Button>
       </form>
       {typeof weather.main === 'undefined' ? (
-        <p>Thers no data yet</p>
+        <p>Please enter a city to find what is the weather like :)</p>
       ) : (
-        <div>
-          <span>{weather.name}</span>
-        </div>
+        <Main weather={weather} />
       )}
     </div>
   );
