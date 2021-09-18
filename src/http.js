@@ -8,5 +8,6 @@ const getWeather = async (query) => {
     `${baseUrl}weather?q=${query}&units=metric&APPID=${API_KEY}`
   );
   console.log('responsedata', response.data);
+  return response.data;
 };
 export default getWeather;
