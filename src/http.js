@@ -7,7 +7,7 @@ const getWeather = async (query) => {
   const response = await axios.get(
     `${baseUrl}weather?q=${query}&units=metric&APPID=${API_KEY}`
   );
-  console.log('responsedata', response.data);
+  // console.log('responsedata', response.data);
   return response.data;
 };
 export default getWeather;

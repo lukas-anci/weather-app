@@ -5,13 +5,15 @@ import getWeather from './http';
 
 function App() {
   const [query, setQuery] = useState('');
-  const [weather, setWeather] = useState({});
+  const [weather, setWeather] = useState([]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    getWeather(query);
+    const data = await getWeather(query);
     setQuery('');
+    setWeather(data);
     console.log('stop');
+    console.log('weather cia', weather);
   };
 
   return (
@@ -26,6 +28,13 @@ function App() {
         />
         <Button>Search</Button>
       </form>
+      {typeof weather.main === 'undefined' ? (
+        <p>Thers no data yet</p>
+      ) : (
+        <div>
+          <span>{weather.name}</span>
+        </div>
+      )}
     </div>
   );
 }
