@@ -24,3 +24,11 @@
   font-weight: bold;
   font-size: 20px;
 }
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+.error:first-letter {
+  text-transform: capitalize;
+}

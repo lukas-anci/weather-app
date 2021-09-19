@@ -14,6 +14,7 @@ function App() {
 
     const data = await getWeather(query);
     setWeather(data);
+    setError(JSON.stringify(data));
     setQuery('');
   };
 
@@ -29,7 +30,12 @@ function App() {
         />
         <Button>Search</Button>
       </form>
-      {error && <p>{error}</p>}
+      {Object.keys(error).length > 20 ? (
+        ''
+      ) : (
+        <p className="error">{error.replace(/['"]+/g, '')}</p>
+      )}
+
       {typeof weather.main === 'undefined' || weather === [] ? (
         <p className="define-weather">
           Please enter a city to find what is the weather like
