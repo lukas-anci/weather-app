@@ -5,6 +5,7 @@
   background-image: url('../../img/4.jpg');
   background-repeat: no-repeat;
   background-position: bottom;
+  object-fit: cover;
 }
 
 .location-box .location {
@@ -50,4 +51,28 @@
   font-size: 48px;
   font-weight: 700;
   text-shadow: 1px 1px rgba(50, 50, 70, 0.5);
+}
+
+@media screen and (max-width: 600px) {
+  .main {
+    background-image: url('../../img/3.jpg');
+    background-repeat: no-repeat;
+    /* background-position: bottom; */
+    object-fit: contain;
+  }
+
+  .location-box .location {
+    color: #0688fa;
+    font-weight: bold;
+  }
+  .location-box .date {
+    color: #0688fa;
+    font-weight: bold;
+  }
+  .weather-box .temp {
+    color: #0688fa;
+  }
+  .weather-box .weather {
+    color: #0688fa;
+  }
 }

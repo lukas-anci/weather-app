@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import Button from './components/Button';
+import Button from './components/Button/Button';
 import getWeather from './utils/http';
 import Main from './components/Main/Main';
 
@@ -20,6 +20,12 @@ function App() {
 
   return (
     <div className="App container">
+      {!error && (
+        <p className="define-weather">
+          Please enter a city to find what is the weather like
+        </p>
+      )}
+
       <form onSubmit={handleSubmit}>
         <input
           onChange={(e) => setQuery(e.target.value)}
@@ -30,14 +36,13 @@ function App() {
         />
         <Button>Search</Button>
       </form>
-      {Object.keys(error).length < 30 && (
-        <p className="error">{error.replace(/['"]+/g, '')}</p>
-      )}
 
       {typeof weather.main === 'undefined' || weather === [] ? (
-        <p className="define-weather">
-          Please enter a city to find what is the weather like
-        </p>
+        <>
+          {Object.keys(error).length < 30 && (
+            <p className="error">{error.replace(/['"]+/g, '')}</p>
+          )}
+        </>
       ) : (
         <Main weather={weather} />
       )}

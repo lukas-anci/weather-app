@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .container {
   width: 80%;
   margin: 0 auto;
@@ -20,15 +25,26 @@
 }
 
 .define-weather {
+  margin-bottom: 1rem;
   color: #2dabf9;
   font-weight: bold;
   font-size: 20px;
 }
 
 .error {
+  font-size: 20px;
   color: red;
   font-weight: bold;
+  margin: 1rem;
 }
 .error:first-letter {
   text-transform: capitalize;
+}
+@media screen and (max-width: 500px) {
+  .input {
+    width: 60%;
+  }
+  .define-weather {
+    text-align: center;
+  }
 }
