@@ -43,6 +43,7 @@
 @media screen and (max-width: 500px) {
   .input {
     width: 60%;
+    margin-left: 0.7rem;
   }
   .define-weather {
     text-align: center;
