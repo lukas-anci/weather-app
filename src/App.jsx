@@ -30,9 +30,7 @@ function App() {
         />
         <Button>Search</Button>
       </form>
-      {Object.keys(error).length > 20 ? (
-        ''
-      ) : (
+      {Object.keys(error).length < 30 && (
         <p className="error">{error.replace(/['"]+/g, '')}</p>
       )}
 
