@@ -7,12 +7,14 @@ import Main from './components/Main/Main';
 function App() {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState([]);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const data = await getWeather(query);
-    setQuery('');
     setWeather(data);
+    setQuery('');
   };
 
   return (
@@ -27,8 +29,11 @@ function App() {
         />
         <Button>Search</Button>
       </form>
-      {typeof weather.main === 'undefined' ? (
-        <p>Please enter a city to find what is the weather like :)</p>
+      {error && <p>{error}</p>}
+      {typeof weather.main === 'undefined' || weather === [] ? (
+        <p className="define-weather">
+          Please enter a city to find what is the weather like
+        </p>
       ) : (
         <Main weather={weather} />
       )}
